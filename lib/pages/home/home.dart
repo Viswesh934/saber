@@ -71,8 +71,8 @@ class _HomePageState extends State<HomePage> {
           ? Column(
               children: [
                 Expanded(child: body),
-                const BannerAdWidget(
-                  adSize: AdSize.largeBanner,
+                BannerAdWidget.adaptive(
+                  screenWidth: MediaQuery.of(context).size.width,
                 ),
               ],
             )

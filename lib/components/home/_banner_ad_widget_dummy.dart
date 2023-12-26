@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 const _kDummyAdMessage = 'This is a dummy class for when ads are disabled.';
@@ -20,14 +22,25 @@ abstract class AdState {
 class BannerAdWidget extends StatelessWidget {
   const BannerAdWidget({
     super.key,
-    required this.adSize,
-  });
+    this.adSize = AdSize.largeBanner,
+  }) : fallbackAdSize = adSize;
+
+  const BannerAdWidget.adaptive({
+    super.key,
+    required double screenWidth,
+    this.fallbackAdSize = AdSize.largeBanner,
+  }) : adSize = fallbackAdSize;
 
   final AdSize adSize;
+  final AdSize fallbackAdSize;
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox.shrink();
+    return SizedBox(
+      width: adSize.width.toDouble(),
+      height: adSize.height.toDouble(),
+      child: const Placeholder(),
+    );
   }
 }
 
@@ -43,4 +56,11 @@ class AdSize {
 
   @Deprecated(_kDummyAdMessage)
   static const largeBanner = AdSize(width: 320, height: 100);
+
+  @Deprecated(_kDummyAdMessage)
+  static Future<AdSize> getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+    int width,
+  ) async {
+    return largeBanner;
+  }
 }
