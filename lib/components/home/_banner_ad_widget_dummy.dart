@@ -40,4 +40,7 @@ class AdSize {
 
   final int width;
   final int height;
+
+  @Deprecated(_kDummyAdMessage)
+  static const largeBanner = AdSize(width: 320, height: 100);
 }
