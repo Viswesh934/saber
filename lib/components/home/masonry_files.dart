@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 
@@ -21,9 +20,6 @@ class MasonryFiles extends StatefulWidget {
 }
 
 class _MasonryFilesState extends State<MasonryFiles> {
-  /// The number of files to display before showing an ad.
-  static const int itemsBeforeAd = 5;
-
   final ValueNotifier<bool> isAnythingSelected = ValueNotifier(false);
 
   void toggleSelection(String filePath, bool selected) {
