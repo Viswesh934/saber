@@ -141,7 +141,7 @@ class BannerAdWidget extends StatefulWidget {
   BannerAdWidget.adaptive({
     super.key,
     required double screenWidth,
-    this.fallbackAdSize = AdSize.largeBanner,
+    this.fallbackAdSize = AdSize.banner,
   }) : adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
           screenWidth.floor(),
         ).then((adSize) => adSize ?? fallbackAdSize);

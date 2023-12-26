@@ -22,13 +22,13 @@ abstract class AdState {
 class BannerAdWidget extends StatelessWidget {
   const BannerAdWidget({
     super.key,
-    this.adSize = AdSize.largeBanner,
+    this.adSize = AdSize.banner,
   }) : fallbackAdSize = adSize;
 
   const BannerAdWidget.adaptive({
     super.key,
     required double screenWidth,
-    this.fallbackAdSize = AdSize.largeBanner,
+    this.fallbackAdSize = AdSize.banner,
   }) : adSize = fallbackAdSize;
 
   final AdSize adSize;
@@ -55,12 +55,12 @@ class AdSize {
   final int height;
 
   @Deprecated(_kDummyAdMessage)
-  static const largeBanner = AdSize(width: 320, height: 100);
+  static const banner = AdSize(width: 320, height: 50);
 
   @Deprecated(_kDummyAdMessage)
   static Future<AdSize> getCurrentOrientationAnchoredAdaptiveBannerAdSize(
     int width,
   ) async {
-    return largeBanner;
+    return banner;
   }
 }
